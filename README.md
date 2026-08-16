@@ -1,6 +1,9 @@
 # Calory-Counter
 # 🔥 Django Calorie & BMR Tracking System
 
+🚀 Live Website:
+https://calory-counter.onrender.com/
+
 A simple **Django-based Calorie and BMR Tracking System** that allows users to manage their basic personal information and keep track of daily calorie consumption.
 
 The system uses a custom Django user model and provides separate functionality for storing user information such as **age, gender, height, weight, and BMR**, along with a calorie consumption history.
