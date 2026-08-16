@@ -139,3 +139,7 @@ LOGIN_URL = 'login_page'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://e-commerce-v2-iukf.onrender.com',
+]
