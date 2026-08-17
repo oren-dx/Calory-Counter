@@ -68,15 +68,16 @@ def dashboard(request):
         created_at = today
         )
     total_consumed_calories = today_consumed_data.aggregate(
-         total_calorie = Sum('calorie'),
-         total_count = Count ('calorie')) 
+         total_calorie = Sum('calorie'))['total_calorie'] or 0
+    
+    less_more = round(bmr - total_consumed_calories, 2)
     
 
     context = {
         'required_calories':bmr,
         'today_consumed_data':today_consumed_data,
-        'consumed_calories':total_consumed_calories['total_calorie'],
-        'total_count':total_consumed_calories['total_count'],
+        'consumed_calories':total_consumed_calories,
+        'less_more': less_more,
     }
     return render(request, 'dashboard.html',context)
 
