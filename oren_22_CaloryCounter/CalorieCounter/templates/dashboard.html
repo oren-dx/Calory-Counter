@@ -7,7 +7,8 @@
 
   <h1 class="mt-4">Daily Consumed Calories {{total_count}}</h1>
 
-  <div class="row">
+<div class="row">
+    
     <div class="card col-md-4">
       <div class="card-header">Consumed Calories</div>
       <div class="card-body">
@@ -22,12 +23,28 @@
       </div>
     </div>
 
-    <div class="card col-md-4">
-      <div class="card-header">Less/More Calories</div>
-      <div class="card-body">
-        <h5 class="card-title">{{less_more}} Kcal</h5>
-      </div>
+     <div class="card col-md-4">
+      <div class="card-header">Less / More Calories</div>
+       <div class="card-body">
+
+        {% if less_more > 0 %}
+            <h5 class="card-title text-warning">
+                {{ less_more }} Kcal Less
+            </h5>
+            <p>You need {{ less_more }} more Kcal.</p>
+
+        {% elif less_more < 0 %}
+            <h5 class="card-title text-danger">
+                {{ less_more|cut:"-" }} Kcal More
+            </h5>
+            <p>You consumed more than your required calories.</p>
+
+        {% else %}
+            <h5 class="card-title text-success">0 Kcal</h5>
+            <p>Your required calories are completed.</p>
+        {% endif %}
     </div>
+       
   </div>
 
   <h1>Today Cosumed Calories</h1>
